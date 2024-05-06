@@ -13,10 +13,12 @@ import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
@@ -63,12 +65,21 @@ public class GraphService {
 
   public Mono<List<CalendarDto>> constructCalendar(String userId) {
     final var dates = calculateDates(30);
+    return fetchDataAndCollectToMap(dates, userId)
+        .transform(withDataProcessingAndConstructResult());
+  }
+
+  private Mono<Map<LocalDate, Collection<String>>> fetchDataAndCollectToMap(Pair<String,String> dates, String userId) {
     return findByUserIdAndTimestampBetween(userId, dates.getFirst(), dates.getSecond())
         .collectMultimap(deviceReadingView -> {
           LocalDateTime timestamp = deviceReadingView.getTimestamp();
           ZonedDateTime zonedDateTime = timestamp.atZone(ZoneId.of("UTC"));
           return zonedDateTime.toLocalDate();
-        }, DeviceReadingView::getDeviceId)
+        }, DeviceReadingView::getDeviceId);
+  }
+
+  Function<Mono<Map<LocalDate,Collection<String>>>,Mono<List<CalendarDto>>> withDataProcessingAndConstructResult() {
+    return upstream -> upstream
         .map(map -> {
           final List<CalendarDto> result = new ArrayList<>();
           map.forEach((date, deviceIds) -> {
