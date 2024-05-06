@@ -1,0 +1,26 @@
+[
+  {
+    "id": "01234567-89ab-cdef-0123-456789abcdef",
+    "firstName": "John",
+    "lastName": "Doe",
+    "dateOfBirth": "1990-01-01",
+    "email": "john@example.com",
+    "phoneNumber": "1234567890"
+  },
+  {
+    "id": "fedcba98-7654-3210-fedc-ba9876543210",
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "dateOfBirth": "1985-05-15",
+    "email": "jane@example.com",
+    "phoneNumber": "9876543210"
+  },
+  {
+    "id": "abcdef01-2345-6789-abcd-ef0123456789",
+    "firstName": "Michael",
+    "lastName": "Johnson",
+    "dateOfBirth": "1978-10-30",
+    "email": "michael@example.com",
+    "phoneNumber": "5551234567"
+  }
+]

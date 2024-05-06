@@ -1,0 +1,50 @@
+[
+  {
+    "id": "01234567-89ab-cdef-0123-456789abcdef",
+    "deviceId": "01234567-89ab-cdef-0123-456789abcdef",
+    "userId": "01234567-89ab-cdef-0123-456789abcdef",
+    "timestamp": "2024-05-01T09:00:00Z",
+    "glucoseValue": 90,
+    "unit": "mg/dL"
+  },
+  {
+    "id": "01234567-89ab-cdef-0123-456789abcdeg",
+    "deviceId": "01234567-89ab-cdef-0123-456789abcdef",
+    "userId": "01234567-89ab-cdef-0123-456789abcdef",
+    "timestamp": "2024-05-01T12:05:00Z",
+    "glucoseValue": 240,
+    "unit": "mg/dL"
+  },
+  {
+    "id": "01234567-89ab-cdef-0123-456789abcdeh",
+    "deviceId": "01234567-89ab-cdef-0123-456789abcdef",
+    "userId": "01234567-89ab-cdef-0123-456789abcdef",
+    "timestamp": "2024-05-01T15:00:00Z",
+    "glucoseValue": 170,
+    "unit": "mg/dL"
+  },
+  {
+    "id": "01234567-89ab-cdef-0123-456789abcdei",
+    "deviceId": "01234567-89ab-cdef-0123-456789abcdef",
+    "userId": "01234567-89ab-cdef-0123-456789abcdef",
+    "timestamp": "2024-05-02T10:20:00Z",
+    "glucoseValue": 100,
+    "unit": "mg/dL"
+  },
+  {
+    "id": "fedcba98-7654-3210-fedc-ba9876543210",
+    "deviceId": "fedcba98-7654-3210-fedc-ba9876543210",
+    "userId": "01234567-89ab-cdef-0123-456789abcdef",
+    "timestamp": "2024-05-02T09:00:00Z",
+    "glucoseValue": 105,
+    "unit": "mg/dL"
+  },
+  {
+    "id": "abcdef01-2345-6789-abcd-ef0123456789",
+    "deviceId": "abcdef01-2345-6789-abcd-ef0123456789",
+    "userId": "01234567-89ab-cdef-0123-456789abcdef",
+    "timestamp": "2024-05-03T09:00:00Z",
+    "glucoseValue": 112,
+    "unit": "mg/dL"
+  }
+]

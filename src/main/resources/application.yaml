@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: diabetesManagement
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/glooko
+      auto-index-creation: true
