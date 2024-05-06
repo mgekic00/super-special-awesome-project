@@ -1,4 +1,4 @@
-package com.example.demo.view;
+package com.example.demo.query.view;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

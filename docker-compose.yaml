@@ -1,14 +1,5 @@
 version: "3.7"
 services:
-  axon-server:
-    image: axoniq/axonserver:4.5.8-jdk-17-dev
-    hostname: axonserver
-    ports:
-    - "8024:8024"
-    - "8124:8124"
-    environment:
-      AXONSERVER_HOSTNAME: axonserver
-    restart: unless-stopped
   mongo:
     image: mongo:4.2
     container_name: mongo
@@ -18,39 +9,3 @@ services:
       PUID: 1000
       PGID: 1000
     restart: unless-stopped
-  zookeeper:
-    image: docker.io/bitnami/zookeeper:3.7
-    container_name: zookeeper
-    ports:
-      - "2181:2181"
-    environment:
-      ALLOW_ANONYMOUS_LOGIN: "true"
-  kafka:
-    image: docker.io/bitnami/kafka:3
-    container_name: kafka
-    ports:
-      - "9092:9092"
-    links:
-      - zookeeper
-    environment:
-      ALLOW_PLAINTEXT_LISTENER: "true"
-      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL:PLAINTEXT,CLIENT:PLAINTEXT
-      KAFKA_CFG_LISTENERS: EXTERNAL://:9092,CLIENT://:9093
-      KAFKA_CFG_ADVERTISED_LISTENERS: EXTERNAL://localhost:9092,CLIENT://kafka:9093
-      KAFKA_CFG_INTER_BROKER_LISTENER_NAME: CLIENT
-  schema-registry:
-    image: confluentinc/cp-schema-registry:6.2.1
-    container_name: schema-registry
-    ports:
-      - "8081:8081"
-    depends_on:
-      - zookeeper
-      - kafka
-    links:
-      - zookeeper
-      - kafka
-    environment:
-      SCHEMA_REGISTRY_HOST_NAME: schema-registry
-      SCHEMA_REGISTRY_KAFKASTORE_GROUP_ID: avro-schema-registry
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: PLAINTEXT://kafka:9093

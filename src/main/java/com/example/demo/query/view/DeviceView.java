@@ -1,4 +1,4 @@
-package com.example.demo.view;
+package com.example.demo.query.view;
 
 
 import lombok.AllArgsConstructor;
@@ -8,8 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
-
-
 
 @Getter
 @Setter
